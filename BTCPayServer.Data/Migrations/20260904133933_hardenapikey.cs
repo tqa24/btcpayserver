@@ -47,7 +47,8 @@ namespace BTCPayServer.Migrations
                                  WHERE usage."ApiKeyId" = api_key."Id";
 
                                  UPDATE "ApiKeys"
-                                 SET "Hash" = encode(sha256(convert_to("Id", 'UTF8')), 'hex'),
+                                 SET "CreatedAt" = NULL,
+                                     "Hash" = encode(sha256(convert_to("Id", 'UTF8')), 'hex'),
                                      "Prefix" = left("Id", 6),
                                      "Id" = 'akid_' || left(encode(sha256(sha256(convert_to("Id", 'UTF8'))), 'hex'), 16);
                                  """);
