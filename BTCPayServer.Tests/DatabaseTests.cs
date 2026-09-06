@@ -348,7 +348,7 @@ namespace BTCPayServer.Tests
                 Assert.Equal(expectedHash, migratedApiKey.Hash);
                 Assert.Equal("2683fe", migratedApiKey.Prefix);
                 Assert.Null(migratedApiKey.Key);
-                Assert.NotNull(migratedApiKey.CreatedAt);
+                Assert.Null(migratedApiKey.CreatedAt);
 
                 var usage = await ctx.ApiKeyPermissionUsages.SingleAsync();
                 Assert.Equal(expectedApiKeyId, usage.ApiKeyId);
